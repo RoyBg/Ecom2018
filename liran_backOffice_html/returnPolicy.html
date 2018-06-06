@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-    crossorigin="anonymous">  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
 
-   <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
- 
-<style>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+
+  <style>
     body {
 
       padding-bottom: 2rem;
@@ -47,42 +49,205 @@
       margin-top: 2rem;
       margin-bottom: 2rem;
     }
-    #home,#return
-    {
+
+    #home,
+    #return {
       font-size: 16px;
 
     }
-    #brand
-    {
+
+    #brand {
       font-size: 20px;
 
     }
-    
-
   </style>
 
 </head>
+
 <body>
-    
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" id="brand" href="#">Grapevine</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-    
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" id="home" href="./index.html">Home
-                <span class="sr-only"></span>
-              </a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" id="return" href="">Product Return Policy</a>
-            </li>
-          </ul>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" id="brand" href="#">Grapevine</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" id="home" href="./index.html">Home
+            <span class="sr-only"></span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" id="return" href="#">Product Return Policy</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h3>Product Return Policy for seller</h3>
+    <br>
+    <form action="/action_page.php">
+
+      <div id="Question1">
+        <h4>1) Customers are eligible for a refund if their return is _____________ within 14 days of the original purchase date.</h4>
+
+        <div class="radio">
+          <label>
+            <input type="radio" value="Received by our returns department" name="optradio">Received by our returns department
+
+          </label>
         </div>
-      </nav>
+        <div class="radio">
+          <label>
+            <input type="radio" value="Over nighted" name="optradio">Over nighted
+
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" value="Postmarked" name="optradio">Postmarked</label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" value="Lit on fire and thrown off a bridge" name="optradio">Lit on fire and thrown off a bridge</label>
+        </div>
+
+      </div>
+
+      <br>
+
+      <div id="Question2">
+        <h4>2)While it may seem out of the ordinary, a 14 day return policy is actually ___________ for a costume company.</h4>
+
+        <div class="radio">
+          <label>
+            <input type="radio" value="Only a little short" name="optradio2">Only a little short
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" value="Adversarial" name="optradio2">Adversarial
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" value="Common and accepted" name="optradio2">Common and accepted
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" value="None of the above" name="optradio2">None of the above
+          </label>
+        </div>
+
+      </div>
+
+      <br>
+
+      <div id="Question3">
+        <h4>3)T or F – When a customer is not eligible for a return/refund, you should blame the returns department.</h4>
+
+        <div class="radio">
+          <label>
+            <input type="radio" value="True" name="optradio3">True
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" value="False" name="optradio3">False
+          </label>
+        </div>
+      </div>
+      <br>
+
+      <div id="Question4">
+        <h4>4)When a customer returns an item, they must include ________________ with it.</h4>
+
+        <div class="radio">
+          <label>
+            <input type="radio" value="Proof of purchase" name="optradio4">Proof of purchase
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" value="Bubble wrap or other product production" name="optradio4">Bubble wrap or other product production
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" value="The return form" name="optradio4">The return form
+
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" value="All original packaging" name="optradio4">All original packaging
+
+          </label>
+        </div>
+
+        <div class="radio">
+          <label>
+            <input type="radio" value="" name="optradio4">Both C and D
+          </label>
+        </div>
+
+      </div>
+
+      <br>
+
+      <div id="Question5">
+        <h4>4)A customer who calls for a defective exchange automatically gets their return shipping refunded.</h4>
+
+        <div class="radio">
+          <label>
+            <input type="radio" value="True" name="optradio5">True
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" value="False" name="optradio5">False
+          </label>
+        </div>
+      </div>
+
+
+      <br>
+
+      <div id="Question6">
+        <h4>6)T or F – You should always ask your supervisor if a customer has an understandable reason for not returning an
+          item on time.</h4>
+
+        <div class="radio">
+          <label>
+            <input type="radio" value="True" name="optradio6">True
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" value="False" name="optradio6">False
+          </label>
+        </div>
+      </div>
+
+
+  <button type="submit" class="btn btn-default">Submit</button>
+
+
+
+
+
+    </form>
+
+  </div>
+
+
+
 
 </body>
+
 </html>
