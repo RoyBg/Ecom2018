@@ -161,20 +161,12 @@
       </div>
       <div class="panel-body">
         <ul class="list-group" id="Titles">
-
-          <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab"
-            aria-controls="home">Home</a>
-
-
-
-
         </ul>
 
 
       </div>
 
     </div>
-    <button onclick="addItem()">add item</button>
 
 
   </div>
@@ -195,25 +187,49 @@
   <script>
 
 
+
+    var Orders = [];
     var i = 2;
 
-    function addItem() {
+    init();
+
+    function addItem(order) {
       var ul = document.getElementById("Titles");
       var a = document.createElement("a");
       a.setAttribute('id', i);
-      a.innerHTML = "<a class='list-group-item list-group-item-action active' data-toggle='list' href='#list-home' role='tab'   aria-controls='home'>Home</a>";
+      a.innerHTML = "<a class='list-group-item list-group-item-action list-group-item-danger' data-toggle='list' href='#list-home' role='tab'   aria-controls='home'>" + order.title + "</a>";
       ul.appendChild(a);
 
-      i = i+1;
+      Orders.push(order);
+
+      i = i + 1;
+    }
+    function init() {
+      for (j = 0; j < 10; j++) {
+        addItem(new Order("Order " + j, new Date, "liranzxc", "Iphone 4", "the Warminster region of Wiltshire and the 16th century in Cambridgeshire, England. The root of the name in its possible variant spelling forms can be ALD, AUD, OLD or ORD to which have been added a suffix such as AS, ES, ERS, IS, OS, US, etc. 'Orders' therefore has many possible genealogical or historical derivations which are affiliated in common via the shared modern spelling", "request"));
+
+      }
+
+    }
+    // function removeItem() {
+    //   var ul = document.getElementById("dynamic-list");
+    //   var candidate = document.getElementById("candidate");
+    //   var item = document.getElementById(candidate.value);
+    //   ul.removeChild(item);
+    // }
+
+    function Order(title, date, name_user, name_product, descript, status) {
+      this.title = title;
+      this.date = date;
+      this.name_user = name_user;
+      this.name_product = name_product;
+      this.descript = descript;
+
     }
 
-    function removeItem() {
-      var ul = document.getElementById("dynamic-list");
-      var candidate = document.getElementById("candidate");
-      var item = document.getElementById(candidate.value);
-      ul.removeChild(item);
-    }
-
+    $('#Titles a').on('click', function (e) {
+      /// each row
+    })
 
   </script>
 
