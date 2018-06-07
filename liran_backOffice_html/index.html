@@ -46,8 +46,7 @@
     [class*="col-"] {
       padding-top: 1rem;
       padding-bottom: 1rem;
-      background-color: rgba(86, 61, 124, .15);
-      border: 1px solid rgba(86, 61, 124, .2);
+
     }
 
     hr {
@@ -151,6 +150,40 @@
     </div>
   </nav>
 
+
+  <div id="list_dispute" class="container col-sm-2">
+    <!-- Title List-->
+    <!-- List group  style="height:200px; overflow-y:scroll"-->
+    <!-- List group -->
+    <div class="panel panel-primary" id="result_panel" style="width:200px;height:400px; overflow-y:scroll">
+      <div class="panel-heading">
+        <h3 class="panel-title">Dispute List</h3>
+      </div>
+      <div class="panel-body">
+        <ul class="list-group" id="Titles">
+
+          <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab"
+            aria-controls="home">Home</a>
+
+
+
+
+        </ul>
+
+
+      </div>
+
+    </div>
+    <button onclick="addItem()">add item</button>
+
+
+  </div>
+
+  <div id="box1" class="container col-md-7">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, hic nam recusandae possimus consequuntur odio dicta quod
+      architecto ullam rem quae esse dolores? Dolorum possimus alias quibusdam placeat illo aliquid!</p>
+  </div>
+
   <!-- /container -->
 
 
@@ -161,16 +194,27 @@
 
   <script>
 
-    $('.table > tbody > tr').click(function () {
-      // row was clicked
-      var rows = this.getElementsByTagName("td");
 
-      var status = rows[0].innerHTML;
+    var i = 2;
 
-      alert(status);
+    function addItem() {
+      var ul = document.getElementById("Titles");
+      var a = document.createElement("a");
+      a.setAttribute('id', i);
+      a.innerHTML = "<a class='list-group-item list-group-item-action active' data-toggle='list' href='#list-home' role='tab'   aria-controls='home'>Home</a>";
+      ul.appendChild(a);
+
+      i = i+1;
+    }
+
+    function removeItem() {
+      var ul = document.getElementById("dynamic-list");
+      var candidate = document.getElementById("candidate");
+      var item = document.getElementById(candidate.value);
+      ul.removeChild(item);
+    }
 
 
-    });
   </script>
 
 </body>
