@@ -14,7 +14,7 @@ app.get('/', function (req, res) {
 });
 
 // /static/<filename> - returns the <filename> from the “www” directory that you should create
-app.use(express.static('Ecom2018/liran_backOffice_html'));
+app.use(express.static('www'));
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
 
