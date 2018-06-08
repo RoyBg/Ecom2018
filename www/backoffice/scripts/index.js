@@ -122,6 +122,7 @@ function init() {
 
 function Order(title, date, name_user, name_product, descript, status) {
   this.title = title;
+  date = (date.toString()).substring(0,25);
   this.date = date;
   this.name_user = name_user;
   this.name_product = name_product;
