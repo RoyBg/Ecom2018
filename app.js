@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var request = require('request');
 
 
 var ideas = {
@@ -65,11 +66,17 @@ app.get('/ideas', function (req, res) {
     res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify(ideas)); 
     console.log("get");
-})
+});
 
 var server = app.listen(8081, function () {
    var host = server.address().address;
    var port = server.address().port;
    
    console.log("Example app listening at http://%s:%s", host, port)
+});
+
+request('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY', { json: true }, (err, res, body) => {
+  if (err) { return console.log(err); }
+  console.log(body.url);
+  console.log(body.explanation);
 });
