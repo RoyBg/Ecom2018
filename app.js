@@ -13,7 +13,7 @@ app.get('/', function (req, res) {
 });
 
 // /static/<filename> - returns the <filename> from the “www” directory that you should create
-app.use(express.static('www'));
+app.use(express.static('Ecom2018/liran_backOffice_html'));
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -73,4 +73,3 @@ var server = app.listen(8081, function () {
    
    console.log("Example app listening at http://%s:%s", host, port)
 });
-console.log(ideas);
