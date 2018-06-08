@@ -1,3 +1,0 @@
-function Reject(){
-    alert("HueHue!");
-}
