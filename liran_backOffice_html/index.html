@@ -25,6 +25,16 @@
   <!-- Custom styles for this template -->
 
   <style>
+    #Description {
+      width: 500px;
+      height: 150px;
+    }
+
+    #Date {
+      height: 50px;
+
+    }
+
     #title {
       padding-top: 3rem;
 
@@ -63,6 +73,11 @@
     #brand {
       font-size: 20px;
 
+    }
+
+    #box1 {
+      max-width: 960px;
+      background-color: rgba(36, 142, 228, 0.144);
     }
   </style>
 
@@ -151,11 +166,11 @@
   </nav>
 
 
-  <div id="list_dispute" class="container col-sm-2">
+  <div id="list_dispute" class="container col-md-3">
     <!-- Title List-->
     <!-- List group  style="height:200px; overflow-y:scroll"-->
     <!-- List group -->
-    <div class="panel panel-primary" id="result_panel" style="width:200px;height:400px; overflow-y:scroll">
+    <div class="panel panel-primary" id="result_panel" style="height:600px; overflow-y:scroll">
       <div class="panel-heading">
         <h3 class="panel-title">Dispute List</h3>
       </div>
@@ -172,8 +187,70 @@
   </div>
 
   <div id="box1" class="container col-md-7">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, hic nam recusandae possimus consequuntur odio dicta quod
-      architecto ullam rem quae esse dolores? Dolorum possimus alias quibusdam placeat illo aliquid!</p>
+    <div class="container col-md-8 order-md-1">
+      <h4 class="mb-3">Description dispute details</h4>
+      <h4 class="mb-3" id="title_order">Order #1</h4>
+
+      <form class="needs-validation" novalidate="">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="NameCustomer">Customer Name</label>
+            <label type="text" class="form-control" id="Name_Customer" value="" required=""> SADASD </label>
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="lastName">Date</label>
+            <label type="text" class="form-control" id="Date" value="" required=""> SADASD_DAte </label>
+            <div class="invalid-feedback">
+              Valid last name is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="Product_Name">Product Name</label>
+            <label type="text" class="form-control" id="Product_Name" value="" required=""> Product_Name </label>
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="Status_1">Status</label>
+            <text type="text" class="form-control" id="Status" value="" required=""> Status </label>
+              <div class="invalid-feedback">
+                Valid last name is required.
+              </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <label for="Description">Description</label>
+
+            <textarea type="text" class="form-control" id="Description" value="" required=""> Description </textarea>
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div>
+
+          </div>
+        </div>
+
+
+        <hr class="mb-4">
+        <div class="wrapper">
+          <button type="button" class="btn btn-danger btn-lg" onclick="Reject()">Reject</button>
+          <button type="button" class="btn btn-primary btn-lg" onclick="Contact()">Contact</button>
+          <button type="button" class="btn btn-success btn-lg" onclick="Accept()">Accept</button>
+
+        </div>
+      </form>
+    </div>
+
+
+
   </div>
 
   <!-- /container -->
@@ -189,25 +266,75 @@
 
 
     var Orders = [];
-    var i = 2;
-
+    var i = 0;
+    var CurrectIndex;
     init();
+
+    function UpdateStatus(s, Item) {
+
+      Orders[CurrectIndex].status = s;
+      if (s == "request") {
+        document.getElementById(Item).classList.add("btn-danger");
+
+      }
+      else {
+        if (s == "accept") {
+          document.getElementById(Item).classList.remove("btn-danger");
+          document.getElementById(Item).classList.add("btn-success");
+
+        }
+        else {
+          // cancel
+          document.getElementById(Item).classList.remove("btn-danger");
+          document.getElementById(Item).classList.remove("btn-success");
+
+          document.getElementById(Item).classList.add("btn-warning");
+
+        }
+      }
+
+    }
+
+    function UpdateDisputeList(s) {
+      var ul = document.getElementById("Titles");
+      var a = document.getElementById(CurrectIndex);
+      Orders[CurrectIndex].status = s;
+
+      if (s == "request") {
+        a.classList.add("list-group-item-danger");
+
+      }
+      else {
+        if (s == "accept") {
+          a.classList.remove("list-group-item-danger");
+          a.classList.add("list-group-item-success");
+
+        }
+        else {
+          // cancel
+          a.classList.remove("list-group-item-danger");
+          a.classList.remove("list-group-item-success");
+          a.classList.add("list-group-item-warning");
+
+        }
+      }
+    }
 
     function addItem(order) {
       var ul = document.getElementById("Titles");
       var a = document.createElement("a");
       a.setAttribute('id', i);
-      a.innerHTML = "<a class='list-group-item list-group-item-action list-group-item-danger' data-toggle='list' href='#list-home' role='tab'   aria-controls='home'>" + order.title + "</a>";
-      ul.appendChild(a);
+      a.className = "list-group-item list-group-item-action list-group-item-danger";
+      a.innerHTML = order.title;
 
+      ul.appendChild(a);
       Orders.push(order);
 
       i = i + 1;
     }
     function init() {
       for (j = 0; j < 10; j++) {
-        addItem(new Order("Order " + j, new Date, "liranzxc", "Iphone 4", "the Warminster region of Wiltshire and the 16th century in Cambridgeshire, England. The root of the name in its possible variant spelling forms can be ALD, AUD, OLD or ORD to which have been added a suffix such as AS, ES, ERS, IS, OS, US, etc. 'Orders' therefore has many possible genealogical or historical derivations which are affiliated in common via the shared modern spelling", "request"));
-
+        addItem(new Order("Order " + j, new Date, "liranzxc", "Iphone " + Math.round((Math.random() * 10).toString()), "the Warminster region of Wiltshire and the 16th century in Cambridgeshire, England. The root of the name in its possible variant spelling forms can be ALD, AUD, OLD or ORD to which have been added a suffix such as AS, ES, ERS, IS, OS, US, etc. 'Orders' therefore has many possible genealogical or historical derivations which are affiliated in common via the shared modern spelling", "request"));
       }
 
     }
@@ -224,12 +351,63 @@
       this.name_user = name_user;
       this.name_product = name_product;
       this.descript = descript;
+      this.status = status;
 
     }
 
-    $('#Titles a').on('click', function (e) {
-      /// each row
-    })
+
+    function GenerateDoc(OrderDisplay) {
+
+      document.getElementById("title_order").innerHTML = OrderDisplay.title;
+
+
+      document.getElementById("Name_Customer").innerHTML = OrderDisplay.name_user;
+      document.getElementById("Date").innerHTML = OrderDisplay.date;
+
+      document.getElementById("Product_Name").innerHTML = OrderDisplay.name_product;
+
+      var s = document.getElementById("Status").innerHTML = OrderDisplay.status;
+
+      document.getElementById("Description").innerHTML = (OrderDisplay.descript);
+
+
+      UpdateStatus(s, "Status");
+
+      UpdateDisputeList(s);
+
+
+
+    }
+
+
+    $(document).ready(function () {
+      $(".list-group-item").each(function (index) {
+
+        $(this).on("click", function () {
+          // For the boolean value // each click 
+          CurrectIndex = index;
+          GenerateDoc(Orders[index]);
+
+        });
+      });
+    });
+
+
+    function Accept() {
+      Orders[CurrectIndex].status = "accept";
+    }
+
+    function Reject() {
+      Orders[CurrectIndex].status = "cancel";
+
+    }
+    function Contact() {
+      alert("Contact");
+    }
+
+
+
+
 
   </script>
 
