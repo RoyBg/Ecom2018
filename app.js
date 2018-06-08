@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var request = require('request');
 
 
 var ideas = {
@@ -13,7 +14,7 @@ app.get('/', function (req, res) {
 });
 
 // /static/<filename> - returns the <filename> from the “www” directory that you should create
-app.use(express.static('www'));
+app.use(express.static('Ecom2018/liran_backOffice_html'));
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -65,7 +66,7 @@ app.get('/ideas', function (req, res) {
     res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify(ideas)); 
     console.log("get");
-})
+});
 
 var server = app.listen(8081, function () {
    var host = server.address().address;
@@ -73,4 +74,9 @@ var server = app.listen(8081, function () {
    
    console.log("Example app listening at http://%s:%s", host, port)
 });
-console.log(ideas);
+
+request('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY', { json: true }, (err, res, body) => {
+  if (err) { return console.log(err); }
+  console.log(body.url);
+  console.log(body.explanation);
+});
