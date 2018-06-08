@@ -1,7 +1,42 @@
 var Orders = [];
 var i = 0;
 var CurrectIndex;
+
 init();
+
+/*
+
+
+function loadContant(s){
+
+  switch(s){
+    case nav_Dashboard:
+    console.log("nav_Dashboard");
+    $("#ContectBox").load("allDisputes.html");
+    break;
+
+    case nav_All_Disputes:
+    console.log("nav_All_Disputes");
+
+    $("#ContectBox").load(allDisputes.html);
+    break;
+
+    case nav_Product_Return_Policy:
+    console.log("nav_Product_Return_Policy");
+
+    document.getElementById(ContectBox).innerHTML = allDisputes.html;
+    break;
+
+    case nav_Reports:
+    console.log("nav_Reports");
+    document.getElementById(ContectBox).innerHTML =allDisputes.html ;
+    break;
+
+    
+  }
+}
+
+*/
 
 function UpdateStatus(s) {
 
