@@ -111,6 +111,8 @@ function init() {
   for (j = 0; j < 10; j++) {
     addItem(new Order("Order " + j, new Date, "liranzxc", "Iphone " + Math.round((Math.random() * 10).toString()), "the Warminster region of Wiltshire and the 16th century in Cambridgeshire, England. The root of the name in its possible variant spelling forms can be ALD, AUD, OLD or ORD to which have been added a suffix such as AS, ES, ERS, IS, OS, US, etc. 'Orders' therefore has many possible genealogical or historical derivations which are affiliated in common via the shared modern spelling", "request"));
   }
+  CurrectIndex = 0;
+  GenerateDoc(Orders[0]);
 
 }
 // function removeItem() {
