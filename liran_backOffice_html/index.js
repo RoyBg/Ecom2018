@@ -3,27 +3,28 @@ var i = 0;
 var CurrectIndex;
 init();
 
-function UpdateStatus(s, Item) {
+function UpdateStatus(s) {
 
-  Orders[CurrectIndex].status = s;
-  if (s == "request") {
-    document.getElementById(Item).classList.add("btn-danger");
+  switch(s)
+  {
+    case "cancel":
+    document.getElementById("Status").classList.remove("btn-danger");
+    document.getElementById("Status").classList.remove("btn-success");
+    document.getElementById("Status").classList.add("btn-warning");
 
-  }
-  else {
-    if (s == "accept") {
-      document.getElementById(Item).classList.remove("btn-danger");
-      document.getElementById(Item).classList.add("btn-success");
+    break;
 
-    }
-    else {
-      // cancel
-      document.getElementById(Item).classList.remove("btn-danger");
-      document.getElementById(Item).classList.remove("btn-success");
+    case "accept":
+    document.getElementById("Status").classList.remove("btn-danger");
+    document.getElementById("Status").classList.add("btn-success");
+    break;
 
-      document.getElementById(Item).classList.add("btn-warning");
-
-    }
+    default:
+    document.getElementById("Status").classList.add("btn-danger");
+    document.getElementById("Status").classList.remove("btn-success");
+    document.getElementById("Status").classList.remove("btn-warning");
+    break;
+      
   }
 
 }
@@ -31,25 +32,29 @@ function UpdateStatus(s, Item) {
 function UpdateDisputeList(s) {
   var ul = document.getElementById("Titles");
   var a = document.getElementById(CurrectIndex);
-  Orders[CurrectIndex].status = s;
+  
+  switch(s)
+  {
+    case "accept":
+    a.classList.remove("list-group-item-danger");
+    a.classList.remove("list-group-item-warning");
+    a.classList.add("list-group-item-success");
 
-  if (s == "request") {
+    break;
+
+    case "cancel":
+    a.classList.remove("list-group-item-danger");
+    a.classList.remove("list-group-item-success");
+    a.classList.add("list-group-item-warning");
+    break;
+
+    default:
+    a.classList.remove("list-group-item-success");
+    a.classList.remove("list-group-item-warning");
     a.classList.add("list-group-item-danger");
+    break;
 
-  }
-  else {
-    if (s == "accept") {
-      a.classList.remove("list-group-item-danger");
-      a.classList.add("list-group-item-success");
 
-    }
-    else {
-      // cancel
-      a.classList.remove("list-group-item-danger");
-      a.classList.remove("list-group-item-success");
-      a.classList.add("list-group-item-warning");
-
-    }
   }
 }
 
@@ -98,6 +103,9 @@ function GenerateDoc(OrderDisplay) {
   document.getElementById("Date").innerHTML = OrderDisplay.date;
   document.getElementById("Product_Name").innerHTML = OrderDisplay.name_product;
   var s = document.getElementById("Status").innerHTML = OrderDisplay.status;
+
+  UpdateStatus(s);
+  
   document.getElementById("Description").innerHTML = (OrderDisplay.descript);
 }
 
@@ -120,7 +128,7 @@ function Accept() {
 
   Orders[CurrectIndex].status = "accept";
 
-  UpdateStatus("accept", "Status");
+  UpdateStatus("accept");
 
   UpdateDisputeList("accept");
 
@@ -130,7 +138,7 @@ function Accept() {
 function Reject() {
   Orders[CurrectIndex].status = "cancel";
 
-  UpdateStatus("cancel", "Status");
+  UpdateStatus("cancel");
   UpdateDisputeList("cancel");
 
 }
