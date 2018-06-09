@@ -89,6 +89,27 @@
     </ol>
     <h1>Graph of the most returned products</h1>
     <canvas id="myChart" style="max-width: 75%;"></canvas>
+
+    <br>
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-area-chart"></i>
+                <h1>Graph of opened disputes - March 2018</h1>
+            </div>
+            <div class="card-body">
+                <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                    <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                        <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                    </div>
+                    <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                        <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                    </div>
+                </div>
+                <canvas id="myAreaChart" width="919" height="275" class="chartjs-render-monitor" style="display: block; width: 919px; height: 275px;"></canvas>
+            </div>
+        </div>
+    
+
     <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -131,30 +152,75 @@
                 scales: {
                     yAxes: [{
                         scaleLabel: {
-                        display: true,
-                        labelString: "# of returns (K)",
-                        fontSize: 24
-                         },
+                            display: true,
+                            labelString: "# of returns (K)",
+                            fontSize: 24
+                        },
                         ticks: {
                             fontSize: 16,
                             beginAtZero: true
                         }
                     }],
                     xAxes: [{
-                          scaleLabel: {
-                        display: true,
-                        labelString: "Names of products",
-                        fontSize: 24
-                         },
+                        scaleLabel: {
+                            display: true,
+                            fontSize: 24
+                        },
                         ticks: {
                             fontSize: 16,
                             beginAtZero: true
                         }
-                    
+
                     }]
                 }
             }
         });
+
+
+        Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif', Chart.defaults.global.defaultFontColor = "#292b2c";
+        var ctx = document.getElementById("myAreaChart"), myLineChart = new Chart(ctx, {
+            type: "line", data: {
+                labels: ["Mar 1", "Mar 2", "Mar 3", "Mar 4", "Mar 5", "Mar 6", "Mar 7", "Mar 8", "Mar 9", "Mar 10", "Mar 11", "Mar 12", "Mar 13", "Mar 14", "Mar 15", "Mar 16", "Mar 17", "Mar 18", "Mar 19", "Mar 20", "Mar 21", "Mar 22", "Mar 23", "Mar 24", "Mar 25", "Mar 26", "Mar 27", "Mar 28", "Mar 29", "Mar 30", "Mar 31"],
+                datasets: [{
+                    label: "Sessions", lineTension: .3, backgroundColor: "rgba(255, 99, 132, 0.2)",
+                    borderColor: "rgba(0, 0, 0, 0.65)"
+                    , pointRadius: 5, pointBackgroundColor: "rgba(255, 159, 64, 1)",
+                    pointBorderColor: "rgba(255, 159, 64, 1)", pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "rgba(255, 159, 64, 1)",
+                    pointHitRadius: 20, pointBorderWidth: 2, data:
+                        [1e4, 30162, 2626, 1839, 3e4, 2868, 2000, 2e4, 2584, 2415, 3265, 31984, 38451, 2626, 1839, 3e4, 2868, 2000,2415, 3265, 31984, 38451, 2626, 1839, 1839, 3e4, 2868, 2000, 2e4, 2584,1e4]
+                }]
+            }
+            , options: {
+                scales: {
+                    xAxes: [{
+                        time: { unit: "date" }
+                        , gridLines: { display: !1 }, ticks: { maxTicksLimit: 30 }
+                    }], yAxes:
+                        [{
+                            scaleLabel: {
+                                display: true,
+                                fontSize: 24
+                            },
+                            ticks: { min: 0, max: 4e4, maxTicksLimit: 30,fontSize: 16},
+                            
+                            gridLines: { color: "rgba(0, 0, 0, .125)" }
+                        }],
+
+                    xAxes: [{
+
+                        scaleLabel: {
+                            display: true,
+                            fontSize: 24
+                        },
+                        ticks: { min: 0, max: 4e4, maxTicksLimit: 28,fontSize: 16},
+                        gridLines: { color: "rgba(0, 0, 0, .125)" }
+                    }],
+
+                }, legend: { display: !1 }
+            }
+        }), ctx = document.getElementById("myBarChart"), myLineChart = new Chart(ctx, { type: "bar", data: { labels: ["January", "February", "March", "April", "May", "June"], datasets: [{ label: "Revenue", backgroundColor: "rgba(2,117,216,1)", borderColor: "rgba(2,117,216,1)", data: [4215, 5312, 6251, 7841, 9821, 14984] }] }, options: { scales: { xAxes: [{ time: { unit: "month" }, gridLines: { display: !1 }, ticks: { maxTicksLimit: 6 } }], yAxes: [{ ticks: { min: 0, max: 15e3, maxTicksLimit: 5 }, gridLines: { display: !0 } }] }, legend: { display: !1 } } }), ctx = document.getElementById("myPieChart"), myPieChart = new Chart(ctx, { type: "pie", data: { labels: ["Blue", "Red", "Yellow", "Green"], datasets: [{ data: [12.21, 15.58, 11.25, 8.32], backgroundColor: ["#007bff", "#dc3545", "#ffc107", "#28a745"] }] } });
+
     </script>
 </body>
 
