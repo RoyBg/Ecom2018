@@ -40,26 +40,26 @@ function loadContant(s){
 
 function UpdateStatus(s) {
 
-  switch(s)
-  {
+  switch (s) {
     case "cancel":
-    document.getElementById("Status").classList.remove("btn-danger");
-    document.getElementById("Status").classList.remove("btn-success");
-    document.getElementById("Status").classList.add("btn-warning");
+      document.getElementById("Status").classList.remove("btn-danger");
+      document.getElementById("Status").classList.remove("btn-success");
+      document.getElementById("Status").classList.add("btn-warning");
 
-    break;
+      break;
 
     case "accept":
-    document.getElementById("Status").classList.remove("btn-danger");
-    document.getElementById("Status").classList.add("btn-success");
-    break;
+      document.getElementById("Status").classList.remove("btn-warning");
+      document.getElementById("Status").classList.remove("btn-danger");
+      document.getElementById("Status").classList.add("btn-success");
+      break;
 
     default:
-    document.getElementById("Status").classList.add("btn-danger");
-    document.getElementById("Status").classList.remove("btn-success");
-    document.getElementById("Status").classList.remove("btn-warning");
-    break;
-      
+      document.getElementById("Status").classList.add("btn-danger");
+      document.getElementById("Status").classList.remove("btn-success");
+      document.getElementById("Status").classList.remove("btn-warning");
+      break;
+
   }
 
 }
@@ -67,27 +67,26 @@ function UpdateStatus(s) {
 function UpdateDisputeList(s) {
   var ul = document.getElementById("Titles");
   var a = document.getElementById(CurrectIndex);
-  
-  switch(s)
-  {
-    case "accept":
-    a.classList.remove("list-group-item-danger");
-    a.classList.remove("list-group-item-warning");
-    a.classList.add("list-group-item-success");
 
-    break;
+  switch (s) {
+    case "accept":
+      a.classList.remove("list-group-item-danger");
+      a.classList.remove("list-group-item-warning");
+      a.classList.add("list-group-item-success");
+
+      break;
 
     case "cancel":
-    a.classList.remove("list-group-item-danger");
-    a.classList.remove("list-group-item-success");
-    a.classList.add("list-group-item-warning");
-    break;
+      a.classList.remove("list-group-item-danger");
+      a.classList.remove("list-group-item-success");
+      a.classList.add("list-group-item-warning");
+      break;
 
     default:
-    a.classList.remove("list-group-item-success");
-    a.classList.remove("list-group-item-warning");
-    a.classList.add("list-group-item-danger");
-    break;
+      a.classList.remove("list-group-item-success");
+      a.classList.remove("list-group-item-warning");
+      a.classList.add("list-group-item-danger");
+      break;
 
 
   }
@@ -124,7 +123,7 @@ function init() {
 
 function Order(title, date, name_user, name_product, descript, status) {
   this.title = title;
-  date = (date.toString()).substring(0,25);
+  date = (date.toString()).substring(0, 25);
   this.date = date;
   this.name_user = name_user;
   this.name_product = name_product;
@@ -143,7 +142,7 @@ function GenerateDoc(OrderDisplay) {
   var s = document.getElementById("Status").innerHTML = OrderDisplay.status;
 
   UpdateStatus(s);
-  
+
   document.getElementById("Description").innerHTML = (OrderDisplay.descript);
 }
 
@@ -164,20 +163,26 @@ $(document).ready(function () {
 
 function Accept() {
 
-  Orders[CurrectIndex].status = "accept";
 
-  UpdateStatus("accept");
+  if (Orders[CurrectIndex].status == "request") {
+    Orders[CurrectIndex].status = "accept";
 
-  UpdateDisputeList("accept");
+    UpdateStatus("accept");
+
+    UpdateDisputeList("accept");
+  }
 
 
 }
 
 function Reject() {
-  Orders[CurrectIndex].status = "cancel";
 
-  UpdateStatus("cancel");
-  UpdateDisputeList("cancel");
+  if (Orders[CurrectIndex].status == "request") {
+    Orders[CurrectIndex].status = "cancel";
+
+    UpdateStatus("cancel");
+    UpdateDisputeList("cancel");
+  }
 
 }
 function Contact() {
