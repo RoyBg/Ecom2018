@@ -1,9 +1,12 @@
 var i=1;
 const nodemailer = require('nodemailer');
-const exspress = require('exspress');
+const express = require('express');
 var router = express.Router();
-var Hogen = require('hogen.js');
+const Hogan = require('hogan.js');
 var fs= require('fs');
+
+var template= fs.readFileSync('./www/backoffice/html/emails/EmailTempate1.htm','utf-8');
+var compiledTemplate = Hogan.compile(template);
 
 
 var myMail ='hackafk@gmail.com';
@@ -24,7 +27,7 @@ var mailOptions = {
     to: 'Roybargil@gmail.com',
     subject: 'Sending Email using Node.js',
   
-    html: 'this is the next test',
+    html: compiledTemplate.render(),
   };
   
   if (i=1){
