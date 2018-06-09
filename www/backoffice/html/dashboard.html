@@ -91,24 +91,24 @@
     <canvas id="myChart" style="max-width: 75%;"></canvas>
 
     <br>
-        <div class="card mb-3">
-            <div class="card-header">
-                <i class="fa fa-area-chart"></i>
-                <h1>Graph of opened disputes - March 2018</h1>
-            </div>
-            <div class="card-body">
-                <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
-                    <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                        <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
-                    </div>
-                    <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                        <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
-                    </div>
-                </div>
-                <canvas id="myAreaChart" width="919" height="275" class="chartjs-render-monitor" style="display: block; width: 919px; height: 275px;"></canvas>
-            </div>
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-area-chart"></i>
+            <h1>Graph of opened disputes - March 2018</h1>
         </div>
-    
+        <div class="card-body">
+            <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                </div>
+                <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                    <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                </div>
+            </div>
+            <canvas id="myAreaChart" width="919" height="275" class="chartjs-render-monitor" style="display: block; width: 919px; height: 275px;"></canvas>
+        </div>
+    </div>
+
 
     <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
 
@@ -188,7 +188,7 @@
                     pointBorderColor: "rgba(255, 159, 64, 1)", pointHoverRadius: 5,
                     pointHoverBackgroundColor: "rgba(255, 159, 64, 1)",
                     pointHitRadius: 20, pointBorderWidth: 2, data:
-                        [1e4, 30162, 2626, 1839, 3e4, 2868, 2000, 2e4, 2584, 2415, 3265, 31984, 38451, 2626, 1839, 3e4, 2868, 2000,2415, 3265, 31984, 38451, 2626, 1839, 1839, 3e4, 2868, 2000, 2e4, 2584,1e4]
+                        [1e4, 30162, 2626, 1839, 3e4, 2868, 2000, 2e4, 2584, 2415, 3265, 31984, 38451, 2626, 1839, 3e4, 2868, 2000, 2415, 3265, 31984, 38451, 2626, 1839, 1839, 3e4, 2868, 2000, 2e4, 2584, 1e4]
                 }]
             }
             , options: {
@@ -202,8 +202,8 @@
                                 display: true,
                                 fontSize: 24
                             },
-                            ticks: { min: 0, max: 4e4, maxTicksLimit: 30,fontSize: 16},
-                            
+                            ticks: { min: 0, max: 4e4, maxTicksLimit: 30, fontSize: 16 },
+
                             gridLines: { color: "rgba(0, 0, 0, .125)" }
                         }],
 
@@ -213,7 +213,7 @@
                             display: true,
                             fontSize: 24
                         },
-                        ticks: { min: 0, max: 4e4, maxTicksLimit: 28,fontSize: 16},
+                        ticks: { min: 0, max: 4e4, maxTicksLimit: 28, fontSize: 16 },
                         gridLines: { color: "rgba(0, 0, 0, .125)" }
                     }],
 
