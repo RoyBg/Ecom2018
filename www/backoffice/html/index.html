@@ -19,17 +19,25 @@
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 
   <!-- Bootstrap core CSS -->
   <!-- Custom styles for this template -->
 
- 
+  <style>
+    body {
+      background-color: #e3e3cfc7;
+
+    }
+    #tab,#logo {
+      background-color: #221e21;
+    }
+  </style>
 
 </head>
 
 <body>
-  <nav id="logo" class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav id="logo" class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" id="brand" href="#">Grapevine</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -37,154 +45,159 @@
     </button>
   </nav>
 
-  <nav id="Navigator" class="col-md-2 d-none d-md-block bg-light sidebar">
-      <div class="sidebar-sticky">
-        <ul class="nav flex-column">
-  
-            <li class="nav-item">
-                <a class="nav-link" href="./dashboard.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
-                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                    </svg>
-                  Dashboard
-                </a>
-              </li>
-  
-  
-  
-          <li class="nav-item">
-            <a class="nav-link active" href="index.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers">
-                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                  <polyline points="2 17 12 22 22 17"></polyline>
-                  <polyline points="2 12 12 17 22 12"></polyline>
-                </svg>
-              All Disputes
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./returnPolicy.html">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
-                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
-                <polyline points="13 2 13 9 20 9"></polyline>
-              </svg>
-              Product Return Policy
-            </a>
-          </li>
-          
-          <li class="nav-item">
-              <a class="nav-link" href="Reports.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2">
-                  <line x1="18" y1="20" x2="18" y2="10"></line>
-                  <line x1="12" y1="20" x2="12" y2="4"></line>
-                  <line x1="6" y1="20" x2="6" y2="14"></line>
-                </svg>
-                Reports
-              </a>
-            </li>
-  
-        </ul>
-      </div>
-    </nav>
+  <nav id="Navigator" class="col-md-2 d-none d-md-block  sidebar">
+    <div class="sidebar-sticky">
+      <ul class="nav flex-column">
 
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="#">Dashboard</a>
+        <li class="nav-item">
+          <a class="nav-link" href="./dashboard.html" style="color:#000000">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Dashboard
+          </a>
         </li>
-        <li class="breadcrumb-item active">All Disputes</li>
-    </ol>
 
-    <div id=Contect Box  class="container col-md-8" >
-        <div id="list_dispute" class="container col-md-3">
-            <!-- Title List-->
-            <!-- List group  style="height:200px; overflow-y:scroll"-->
-            <!-- List group -->
-            <div class="panel panel-primary" id="result_panel" style="height:600px; overflow-y:scroll">
-              <div class="panel-heading">
-                <h3 class="panel-title">Dispute List</h3>
-              </div>
-              <div class="panel-body">
-                <ul class="list-group" id="Titles">
-                </ul>
-        
-        
-              </div>
-        
-            </div>
-        
-        
-          </div>
-        
-          <div id="list_dispute_contect" class="container col-md-7">
-            <div class="container col-md-8 order-md-1">
-              <h4 class="mb-3">Description dispute details</h4>
-              <h4 class="mb-3" id="title_order">Order #1</h4>
-        
-              <form class="needs-validation" novalidate="">
-                <div class="row">
-                  <div class="col-md-6 mb-3">
-                    <label for="NameCustomer">Customer Name</label>
-                    <label type="text" class="form-control" id="Name_Customer" value="" required=""> SADASD </label>
-                    <div class="invalid-feedback">
-                      Valid first name is required.
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <label for="lastName">Date</label>
-                    <label type="text" class="form-control" id="Date" value="" required=""> SADASD_DAte </label>
-                    <div class="invalid-feedback">
-                      Valid last name is required.
-                    </div>
-                  </div>
-                </div>
-        
-                <div class="row">
-                  <div class="col-md-6 mb-3">
-                    <label for="Product_Name">Product Name</label>
-                    <label type="text" class="form-control" id="Product_Name" value="" required=""> Product_Name </label>
-                    <div class="invalid-feedback">
-                      Valid first name is required.
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <label for="Status_1">Status</label>
-                    <text type="text" class="form-control" id="Status" value="" required=""> Status </label>
-                      <div class="invalid-feedback">
-                        Valid last name is required.
-                      </div>
-                  </div>
-                </div>
-        
-                <div class="row">
-                  <div class="col-md-12">
-                    <label for="Description">Description</label>
-        
-                    <textarea type="text" class="form-control" id="Description" value="" required=""> Description </textarea>
-                    <div class="invalid-feedback">
-                      Valid first name is required.
-                    </div>
-        
-                  </div>
-                </div>
-        
-        
-                <hr class="mb-4">
-                <div class="wrapper">
-                  <button type="button" class="btn btn-danger btn-lg" onclick="Reject()">Reject</button>
-                  <button type="button" class="btn btn-primary btn-lg" onclick="Contact()">Contact</button>
-                  <button type="button" class="btn btn-success btn-lg" onclick="Accept()">Accept</button>
-        
-                </div>
-              </form>
-            </div>
-        
-        
-        
-          </div>
+
+
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html" style="color:#000000">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+            All Disputes
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./returnPolicy.html" style="color:#000000">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+              <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+              <polyline points="13 2 13 9 20 9"></polyline>
+            </svg>
+            Product Return Policy
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="Reports.html" style="color:#000000">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+            Reports
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+
+  <ol class="breadcrumb" id="tab">
+    <li class="breadcrumb-item">
+      <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">All Disputes</li>
+  </ol>
+
+  <div id=Contect Box class="container col-md-8">
+    <div id="list_dispute" class="container col-md-3">
+      <!-- Title List-->
+      <!-- List group  style="height:200px; overflow-y:scroll"-->
+      <!-- List group -->
+      <div class="panel panel-primary" id="result_panel" style="height:600px; overflow-y:scroll">
+        <div class="panel-heading">
+          <h3 class="panel-title">Dispute List</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="list-group" id="Titles">
+          </ul>
+
+
+        </div>
+
+      </div>
+
 
     </div>
+
+    <div id="list_dispute_contect" class="container col-md-7">
+      <div class="container col-md-8 order-md-1">
+        <h4 class="mb-3">Description dispute details</h4>
+        <h4 class="mb-3" id="title_order">Order #1</h4>
+
+        <form class="needs-validation" novalidate="">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="NameCustomer">Customer Name</label>
+              <label type="text" class="form-control" id="Name_Customer" value="" required=""> SADASD </label>
+              <div class="invalid-feedback">
+                Valid first name is required.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="lastName">Date</label>
+              <label type="text" class="form-control" id="Date" value="" required=""> SADASD_DAte </label>
+              <div class="invalid-feedback">
+                Valid last name is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="Product_Name">Product Name</label>
+              <label type="text" class="form-control" id="Product_Name" value="" required=""> Product_Name </label>
+              <div class="invalid-feedback">
+                Valid first name is required.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="Status_1">Status</label>
+              <text type="text" class="form-control" id="Status" value="" required=""> Status </label>
+                <div class="invalid-feedback">
+                  Valid last name is required.
+                </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <label for="Description">Description</label>
+
+              <textarea type="text" class="form-control" id="Description" value="" required=""> Description </textarea>
+              <div class="invalid-feedback">
+                Valid first name is required.
+              </div>
+
+            </div>
+          </div>
+
+
+          <hr class="mb-4">
+          <div class="wrapper">
+            <button type="button" class="btn btn-danger btn-lg" onclick="Reject()">Reject</button>
+            <button type="button" class="btn btn-primary btn-lg" onclick="Contact()">Contact</button>
+            <button type="button" class="btn btn-success btn-lg" onclick="Accept()">Accept</button>
+
+          </div>
+        </form>
+      </div>
+
+
+
+    </div>
+
+  </div>
 
   <!-- /container -->
 
