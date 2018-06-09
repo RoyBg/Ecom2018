@@ -7,13 +7,15 @@ const exspress = require('exspress');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const nodemailer = require('nodemailer');
+var cookieParser = require('cookie-parser');
 const path= require('path');
+
+
+var routes = require('./routes/index');
+
 
 var EmailTemplate = require('email-templates').EmailTemplate;
 var transporter = nodeMailer.createTransport(sender + ':' + password + '@smtp.gmail.com');
-
-var myMail ='hackafk@gmail.com';
-var myMailPass = '123123abcABC';
 
 const app = exspress();
 
@@ -44,18 +46,6 @@ var sendDisputeApprovedMail = transporter.templateSender(
 
 const app = exspress();
 
-//view engine
-app.engine('handlebars',exphbs());
-app.set('view engine', 'handlebars');
-
-
-// Body Parser Middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-// Static folder
-app.use('/www/backoffice', express.static(path.join(__dirname, 'backoffice')));
-
 
 app.get('/', (req, res) => {
     res.render('contact');
@@ -67,7 +57,6 @@ app.listen(3000, (req ,res)=>{
 });
 
 
-
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -77,7 +66,6 @@ var transporter = nodemailer.createTransport({
 });
 
 
-transporter.se
 
 var mailOptions = {
   from: myMail,
