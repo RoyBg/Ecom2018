@@ -15,6 +15,9 @@ var transporter = nodeMailer.createTransport(sender + ':' + password + '@smtp.gm
 var myMail ='hackafk@gmail.com';
 var myMailPass = '123123abcABC';
 
+const app = exspress();
+
+
 // create template based sender function
 // assumes text.{ext} and html.{ext} in template/directory
 var sendDisputeApprovedMail = transporter.templateSender(
@@ -22,15 +25,14 @@ var sendDisputeApprovedMail = transporter.templateSender(
     	from:myMail,
   });
 
-  exports.sendPasswordReset = function (email, username, name, tokenUrl) {
+  exports.sendDisputeApprovedMail = function (email, username, name, tokenUrl) {
     // transporter.template
     sendDisputeApprovedMail({
         to: email,
-        subject: 'Password Reset - YourDomain.com'
+        subject: 'Your Dispute Reqvest has been aproved'
     }, {
         name: name,
         username: username,
-        token: tokenUrl
     }, function (err, info) {
         if (err) {
             console.log(err)
@@ -73,6 +75,9 @@ var transporter = nodemailer.createTransport({
     pass: myMailPass
   }
 });
+
+
+transporter.se
 
 var mailOptions = {
   from: myMail,
