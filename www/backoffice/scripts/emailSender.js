@@ -6,33 +6,76 @@ var i=0 ;
 const exspress = require('exspress');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
-var nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer');
+const path= require('path');
+
+var EmailTemplate = require('email-templates').EmailTemplate;
+var transporter = nodeMailer.createTransport(sender + ':' + password + '@smtp.gmail.com');
+
+var myMail ='hackafk@gmail.com';
+var myMailPass = '123123abcABC';
+
+// create template based sender function
+// assumes text.{ext} and html.{ext} in template/directory
+var sendDisputeApprovedMail = transporter.templateSender(
+  new EmailTemplate('./templates/sendDisputeApprovedMail'), {
+    	from:myMail,
+  });
+
+  exports.sendPasswordReset = function (email, username, name, tokenUrl) {
+    // transporter.template
+    sendDisputeApprovedMail({
+        to: email,
+        subject: 'Password Reset - YourDomain.com'
+    }, {
+        name: name,
+        username: username,
+        token: tokenUrl
+    }, function (err, info) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log('Link sent\n'+ JSON.stringify(info));
+        }
+    });
+};
 
 const app = exspress();
 
+//view engine
+app.engine('handlebars',exphbs());
+app.set('view engine', 'handlebars');
 
 
+// Body Parser Middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-var email1 = File("C:\Users\Roy Ninga\Documents\GitHub\Ecom2018\www\backoffice\html\emails\EmailTempate1.htm") ;
+// Static folder
+app.use('/www/backoffice', express.static(path.join(__dirname, 'backoffice')));
 
 
-
-var email1 = new File(["foo"], "foo.txt", {
-    type: "html",
+app.get('/', (req, res) => {
+    res.render('contact');
   });
+  
 
-  console.log.email1.toString;
+app.listen(3000, (req ,res)=>{
+    res.send('Ahalan world');
+});
+
+
 
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'hackafk@gmail.com',
-    pass: '123123abcABC'
+    user: myMail,
+    pass: myMailPass
   }
 });
 
 var mailOptions = {
-  from: 'hackafk@gmail.com',
+  from: myMail,
   to: 'Roybargil@gmail.com',
   subject: 'Sending Email using Node.js',
 
