@@ -35,7 +35,7 @@ var orders= [];
 // -------------------- Server Settings! -------------------
 
 
-app.use(express.static('Ecom2018/www')); // directory to pull pages from
+app.use(express.static('www')); // directory to pull pages from
 app.use(bodyParser.json()); // request parser to use
 app.use(bodyParser.urlencoded({ extended: true })); // this came from stackoverflow
 
@@ -50,16 +50,25 @@ app.use(bodyParser.urlencoded({ extended: true })); // this came from stackoverf
 // -------------------- Server Routing! -------------------
 
 // Tend an incomming dispute
+
 app.post('/fileDispute', function(req,res) {
     var data = req.body;
-    // (title, date, name_user, name_product, descript, status)
+    // (title, date, name_user, name_product, descript, status , purches_date, email ,cc4 )
     var ord = new Order(
      'dispute from ' + data.name,
      data.Date,
      data.name,
      data.Product,
      data.freeText, 
+<<<<<<< HEAD
+     data.status,
+    data.purches_date,
+    data.email,
+    data.cc4
+        );
+=======
      data.Status);
+>>>>>>> 3abfbb434a89ad40639d8c243c9b2c93d1ae6304
 
     orders.push(ord);
     res.send('we\'re good');
@@ -86,7 +95,7 @@ var server = app.listen(8081, function () {
    console.log("Example app listening at http://%s:%s", host, port);
 });
 
-function Order(title, date, name_user, name_product, descript, status) {
+function Order(title, date, name_user, name_product, descript, status,purches_date, email,cc4) {
     this.title = title;
     date = (date.toString()).substring(0, 25);
     this.date = date;
@@ -94,5 +103,9 @@ function Order(title, date, name_user, name_product, descript, status) {
     this.name_product = name_product;
     this.descript = descript;
     this.status = status;
+  
+    //Roy added fields
+    this.email = email;
+    this.cc4=cc4;
   
   }
