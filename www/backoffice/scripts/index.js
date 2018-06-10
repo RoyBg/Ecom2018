@@ -2,8 +2,8 @@ var Orders = [];
 var i = 0;
 var CurrectIndex;
 
-init();
 
+init();
 /*
 
 
@@ -101,33 +101,25 @@ function addItem(order) {
 
   ul.appendChild(a);
   Orders.push(order);
-  console.log(Orders);
   i = i + 1;
 }
 
 function init() {
-  getDisputesFromSrv();
-//  for (j = 0; j < 10; j++) {
-//    addItem(new Order("Order " + j, new Date, "liranzxc", "Iphone " + Math.round((Math.random() * 10).toString()), "the Warminster region of Wiltshire and the 16th century in Cambridgeshire, England. The root of the name in its possible variant spelling forms can be ALD, AUD, OLD or ORD to which have been added a suffix such as AS, ES, ERS, IS, OS, US, etc. 'Orders' therefore has many possible genealogical or historical derivations which are affiliated in common via the shared modern spelling", "request"));
-//  }
-  CurrectIndex = 0;
-  GenerateDoc(Orders[0]);
-
-}
-
-function getDisputesFromSrv(){
   fetch('http://127.0.0.1:8081/getDisputes')
     .then(function(response) {
         return response.json();
     })
     .then(function(obj) {
-      console.log(obj);
-        for (var key in obj) {
+            for (var key in obj) {
             addItem(obj[key]); 
-        }
-
+      }
+            CurrectIndex = 0;
+      GenerateDoc(Orders[0]);
     });
 }
+
+
+
 // function removeItem() {
 //   var ul = document.getElementById("dynamic-list");
 //   var candidate = document.getElementById("candidate");
@@ -148,8 +140,7 @@ function Order(title, date, name_user, name_product, descript, status) {
 
 
 function GenerateDoc(OrderDisplay) {
-  console.log(OrderDisplay);
-  document.getElementById("title_order").innerHTML = OrderDisplay.title;
+    document.getElementById("title_order").innerHTML = OrderDisplay.title;
   document.getElementById("Name_Customer").innerHTML = OrderDisplay.name_user;
   document.getElementById("Date").innerHTML = OrderDisplay.date;
   document.getElementById("Product_Name").innerHTML = OrderDisplay.name_product;
@@ -162,7 +153,7 @@ function GenerateDoc(OrderDisplay) {
 
 
 $(document).ready(function () {
-  console.log("yolo");
+
   $(".list-group-item").each(function (index) {
 
     $(this).on("click", function () {
