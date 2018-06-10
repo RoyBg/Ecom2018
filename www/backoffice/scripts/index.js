@@ -141,8 +141,8 @@ function Order(title, date, name_user, name_product, descript, status) {
 
 function GenerateDoc(OrderDisplay) {
   document.getElementById("title_order").innerHTML = OrderDisplay.title;
-  document.getElementById("Name_Customer").innerHTML = OrderDisplay.date;
-  document.getElementById("Date").innerHTML = OrderDisplay.name_user;
+  document.getElementById("Name_Customer").innerHTML = OrderDisplay.name_user;
+  document.getElementById("DisputeDate").innerHTML = OrderDisplay.Date;
   document.getElementById("Product_Name").innerHTML = OrderDisplay.name_product;
   document.getElementById("Status").innerHTML = OrderDisplay.status;
   var s = document.getElementById("Status").innerHTML;
