@@ -55,16 +55,18 @@ app.post('/fileDispute', function(req,res) {
     // (title, date, name_user, name_product, descript, status)
     var ord = new Order(
      'dispute from ' + data.name,
-     data.name,
      data.Date,
+     data.name,
      data.Product,
      data.freeText, 
-     data.status);
+     data.Status);
 
     orders.push(ord);
     res.send('we\'re good');
     console.log(orders);
-    console.log(data);
+    console.log('**************************************************');
+    console.log('**************************************************');
+    console.log('**************************************************');
     //TODO: mail the mofo
 });
 

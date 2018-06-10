@@ -140,11 +140,14 @@ function Order(title, date, name_user, name_product, descript, status) {
 
 
 function GenerateDoc(OrderDisplay) {
-    document.getElementById("title_order").innerHTML = OrderDisplay.title;
-  document.getElementById("Name_Customer").innerHTML = OrderDisplay.name_user;
-  document.getElementById("Date").innerHTML = OrderDisplay.date;
+  document.getElementById("title_order").innerHTML = OrderDisplay.title;
+  document.getElementById("Name_Customer").innerHTML = OrderDisplay.date;
+  document.getElementById("Date").innerHTML = OrderDisplay.name_user;
   document.getElementById("Product_Name").innerHTML = OrderDisplay.name_product;
-  var s = document.getElementById("Status").innerHTML = OrderDisplay.status;
+  document.getElementById("Status").innerHTML = OrderDisplay.status;
+  var s = document.getElementById("Status").innerHTML;
+  console.log('Line 149, Generate Doc');
+  console.log(OrderDisplay);
 
   UpdateStatus(s);
 
