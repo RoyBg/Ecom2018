@@ -33,7 +33,7 @@
       <h1 class="mb-3">Dispute details</h1>
       <h4 class="mb-3" id="title_order">Order #1</h4>
 
-      <form class="needs-validation" novalidate="" action="/fileDispute" method="POST">
+      <form class="needs-validation" novalidate="" action="http://127.0.0.1:8081/fileDispute" method="POST">
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="NameCustomer">Customer Name</label>
@@ -42,8 +42,10 @@
               Valid first name is required.
             </div>
           </div>
+
+
           <div class="col-md-6 mb-3">
-            <label for="lastName">CC info last 4 digit </label>
+            <label for="lastName">CC last 4 digit </label>
             <input name="4cc" type="text" class="form-control" id="4cc" value="" required="">  </input>
             <div class="invalid-feedback">
               Valid last name is required.
@@ -54,7 +56,7 @@
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="Product_Name">Product Name</label>
-            <input name="Product" type="text" class="form-control" id="Product_Name" value="" required="">  </input>
+            <input name="product" type="text" class="form-control" id="Product_Name" value="" required="">  </input>
             <div class="invalid-feedback">
               Valid first name is required.
             </div>
@@ -62,7 +64,7 @@
 
           <div class="col-md-6 mb-3">
             <label for="Email">Email</label>
-            <input name="Email" type="text" class="form-control" id="Email" value="" required="">  </input>
+            <input name="email" type="text" class="form-control" id="Email" value="" required="">  </input>
               <div class="invalid-feedback">
                 Valid Email is required.
               </div>

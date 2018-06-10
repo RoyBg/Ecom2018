@@ -127,23 +127,41 @@ function init() {
 //   ul.removeChild(item);
 // }
 
-function Order(title, date, name_user, name_product, descript, status) {
+function Order(title, date, name_user, name_product, descript, status,purches_date, email,cc4) {
   this.title = title;
   date = (date.toString()).substring(0, 25);
   this.date = date;
+
   this.name_user = name_user;
   this.name_product = name_product;
   this.descript = descript;
   this.status = status;
 
+  //Roy added fields
+  this.email = email;
+
+  this.cc4=cc4;
+
 }
 
-
 function GenerateDoc(OrderDisplay) {
-    document.getElementById("title_order").innerHTML = OrderDisplay.title;
+
+  document.getElementById("title_order").innerHTML = OrderDisplay.title;
   document.getElementById("Name_Customer").innerHTML = OrderDisplay.name_user;
-  document.getElementById("Date").innerHTML = OrderDisplay.date;
+  document.getElementById("Dispute_Date").innerHTML = OrderDisplay.date;
   document.getElementById("Product_Name").innerHTML = OrderDisplay.name_product;
+
+
+    //Roy added fields
+  document.getElementById("Email").innerHTML = OrderDisplay.email;
+  document.getElementById("PurchaseDate").innerHTML = OrderDisplay.purchaseDate;
+  //todo boommmmm
+
+
+
+
+
+
   var s = document.getElementById("Status").innerHTML = OrderDisplay.status;
 
   UpdateStatus(s);
