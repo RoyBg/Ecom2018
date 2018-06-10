@@ -145,39 +145,17 @@ function Order(title, date, name_user, name_product, descript, status,purches_da
 }
 
 function GenerateDoc(OrderDisplay) {
-<<<<<<< HEAD
-
   document.getElementById("title_order").innerHTML = OrderDisplay.title;
   document.getElementById("Name_Customer").innerHTML = OrderDisplay.name_user;
   document.getElementById("Dispute_Date").innerHTML = OrderDisplay.date;
   document.getElementById("Product_Name").innerHTML = OrderDisplay.name_product;
-
-
     //Roy added fields
   document.getElementById("Email").innerHTML = OrderDisplay.email;
   document.getElementById("PurchaseDate").innerHTML = OrderDisplay.purchaseDate;
-  //todo boommmmm
-
-
-
-
-
-
+  document.getElementById("Description").innerHTML = (OrderDisplay.descript);
   var s = document.getElementById("Status").innerHTML = OrderDisplay.status;
-=======
-  document.getElementById("title_order").innerHTML = OrderDisplay.title;
-  document.getElementById("Name_Customer").innerHTML = OrderDisplay.name_user;
-  document.getElementById("DisputeDate").innerHTML = OrderDisplay.Date;
-  document.getElementById("Product_Name").innerHTML = OrderDisplay.name_product;
-  document.getElementById("Status").innerHTML = OrderDisplay.status;
-  var s = document.getElementById("Status").innerHTML;
-  console.log('Line 149, Generate Doc');
-  console.log(OrderDisplay);
->>>>>>> 3abfbb434a89ad40639d8c243c9b2c93d1ae6304
-
   UpdateStatus(s);
 
-  document.getElementById("Description").innerHTML = (OrderDisplay.descript);
 }
 
 
