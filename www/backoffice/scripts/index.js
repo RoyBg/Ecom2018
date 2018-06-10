@@ -145,6 +145,7 @@ function Order(title, date, name_user, name_product, descript, status,purches_da
 }
 
 function GenerateDoc(OrderDisplay) {
+<<<<<<< HEAD
 
   document.getElementById("title_order").innerHTML = OrderDisplay.title;
   document.getElementById("Name_Customer").innerHTML = OrderDisplay.name_user;
@@ -163,6 +164,16 @@ function GenerateDoc(OrderDisplay) {
 
 
   var s = document.getElementById("Status").innerHTML = OrderDisplay.status;
+=======
+  document.getElementById("title_order").innerHTML = OrderDisplay.title;
+  document.getElementById("Name_Customer").innerHTML = OrderDisplay.date;
+  document.getElementById("Date").innerHTML = OrderDisplay.name_user;
+  document.getElementById("Product_Name").innerHTML = OrderDisplay.name_product;
+  document.getElementById("Status").innerHTML = OrderDisplay.status;
+  var s = document.getElementById("Status").innerHTML;
+  console.log('Line 149, Generate Doc');
+  console.log(OrderDisplay);
+>>>>>>> 3abfbb434a89ad40639d8c243c9b2c93d1ae6304
 
   UpdateStatus(s);
 

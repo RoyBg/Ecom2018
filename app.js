@@ -56,20 +56,26 @@ app.post('/fileDispute', function(req,res) {
     // (title, date, name_user, name_product, descript, status , purches_date, email ,cc4 )
     var ord = new Order(
      'dispute from ' + data.name,
-     data.name,
      data.Date,
+     data.name,
      data.Product,
      data.freeText, 
+<<<<<<< HEAD
      data.status,
     data.purches_date,
     data.email,
     data.cc4
         );
+=======
+     data.Status);
+>>>>>>> 3abfbb434a89ad40639d8c243c9b2c93d1ae6304
 
     orders.push(ord);
     res.send('we\'re good');
     console.log(orders);
-    console.log(data);
+    console.log('**************************************************');
+    console.log('**************************************************');
+    console.log('**************************************************');
     //TODO: mail the mofo
 });
 
